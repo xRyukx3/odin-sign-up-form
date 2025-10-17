@@ -1,7 +1,32 @@
+@font-face {
+  font-family: norse-bold;
+  src: url(https://cdn.statically.io/gh/TheOdinProject/theodinproject/efdc2888072f409e687d31dc580595dbe4fe0ff4/app/assets/fonts/Norse-Bold.otf);
+}
+
 body {
+  margin: 0;
   width: 100vw;
   height: 100vh;
   background-image: url(images/unsplash.jpg);
   background-size: contain;
   background-repeat: no-repeat;
+  display: flex;
+  & .sidebar {
+    width: calc(100vw - 69.8%);
+    height: 8rem;
+    position: absolute;
+    top: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    & .logo {
+      width: 5rem;
+    }
+    & h1 {
+      font-family: norse-bold;
+      font-size: 5rem;
+      color: white;
+    }
+  }
 }
