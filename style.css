@@ -3,6 +3,15 @@
   src: url(https://cdn.statically.io/gh/TheOdinProject/theodinproject/efdc2888072f409e687d31dc580595dbe4fe0ff4/app/assets/fonts/Norse-Bold.otf);
 }
 
+:root {
+  --sidebar-width: calc(100vw - 69.8%);
+  --header-content: 30vh;
+  --footer-content: 30vh;
+  --main-content: calc(
+    100vh - var(var(--header-content) - var(var(--footer-content)))
+  );
+}
+
 body {
   margin: 0;
   width: 100vw;
@@ -11,10 +20,11 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   display: flex;
+  flex-wrap: nowrap;
   & .sidebar {
     width: calc(100vw - 69.8%);
     height: 8rem;
-    position: absolute;
+    position: relative;
     top: 25vh;
     display: flex;
     justify-content: center;
@@ -27,6 +37,38 @@ body {
       font-family: norse-bold;
       font-size: 5rem;
       color: white;
+    }
+  }
+  & .content {
+    margin: 0;
+    padding: 0;
+    width: calc(100vw - var(--sidebar-width));
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & > * {
+      padding: 3rem;
+    }
+    & .header-content,
+    .footer-content {
+      background-color: #f8f8f8;
+    }
+    & .header-content {
+      height: var(--header-content);
+      position: relative;
+      z-index: 2;
+    }
+    & .main-content {
+      height: var(--main-content);
+      box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+    & .footer-content {
+      height: var(--footer-content);
+      position: relative;
+      z-index: -1;
     }
   }
 }

@@ -7,9 +7,50 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="sidebar">
+    <section class="sidebar">
       <img src="images/odin-lined.png" alt="logo" class="logo" />
       <h1 class="logo-title">ODIN</h1>
-    </div>
+    </section>
+    <section class="content">
+      <div class="header-content">
+        <p>
+          This is not a real online service! You know you need something like
+          this in your life to help you realize your deepest dreams. Sign up now
+          to get started. <br />
+          You know you want to.
+        </p>
+      </div>
+      <div class="main-content">
+        <form action="http://httpbin.org/" method="post">
+          <legend>Let's do this!</legend>
+          <fieldset>
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first-name" />
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last-name" />
+          </fieldset>
+          <fieldset>
+            <label for="user-email">Email</label>
+            <input type="email" id="user-email" name="email" />
+            <label for="user-phone-number">Phone number</label>
+            <input type="number" id="user-phone-number" name="phone-number" />
+          </fieldset>
+          <fieldset>
+            <label for="user-password">Password</label>
+            <input type="password" id="user-password" name="password" />
+            <label for="confirm-password">Confirm password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+            />
+          </fieldset>
+        </form>
+      </div>
+      <div class="footer-content">
+        <button type="submit">Create account</button>
+        <p>Already have an account? Log in</p>
+      </div>
+    </section>
   </body>
 </html>
