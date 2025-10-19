@@ -5,11 +5,13 @@
 
 :root {
   --sidebar-width: calc(100vw - 69.8%);
+  --content-width: calc(100vw - var(--sidebar-width));
   --header-content: 30vh;
   --footer-content: 30vh;
   --main-content: calc(
     100vh - var(var(--header-content) - var(var(--footer-content)))
   );
+  --submit-button-background-color: #596d48;
 }
 
 body {
@@ -21,6 +23,9 @@ body {
   background-repeat: no-repeat;
   display: flex;
   flex-wrap: nowrap;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
   & .sidebar {
     width: calc(100vw - 69.8%);
     height: 8rem;
@@ -42,7 +47,7 @@ body {
   & .content {
     margin: 0;
     padding: 0;
-    width: calc(100vw - var(--sidebar-width));
+    width: var(--content-width);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -58,17 +63,72 @@ body {
       height: var(--header-content);
       position: relative;
       z-index: 2;
+      & p {
+        width: var(--content-width);
+      }
     }
     & .main-content {
+      margin: 0;
+      padding-top: 0;
       height: var(--main-content);
       box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
       position: relative;
       z-index: 1;
+      & form {
+        & legend {
+          padding: 1rem 0;
+        }
+        & fieldset {
+          margin: 0;
+          padding: 0.3rem 0rem;
+          border: none;
+          font-size: 0.7rem;
+          color: #616161;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem;
+          width: calc(var(--content-width) - 10vw);
+          display: flex;
+          justify-content: space-between;
+          & .form-group {
+            display: flex;
+            flex-direction: column;
+            & input {
+              border: 1px solid #e5e7eb;
+            }
+            & input:focus {
+              outline-color: rgb(90, 90, 255);
+              box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+            }
+
+            & input:valid {
+              border-color: #e5e7eb;
+            }
+
+            & input:invalid {
+              border-color: red;
+            }
+          }
+        }
+      }
     }
     & .footer-content {
       height: var(--footer-content);
       position: relative;
       z-index: -1;
+      & .submit-button {
+        color: white;
+        font-weight: 600;
+        width: 12rem;
+        height: 2.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: var(--submit-button-background-color);
+      }
     }
   }
+}
+
+a {
+  color: #616161;
+  text-decoration: none;
 }
